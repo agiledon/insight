@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="1422971744645">
+    <div class="book" data-level="1.1" data-basepath=".." data-revision="1423036642860">
     
 
 <div class="book-summary">
@@ -189,6 +189,20 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="page-inner">
                 
+                
+                    <section class="normal" id="section-gitbook_2">
+                    
+                        <h2 id="datomic">Datomic的设计哲学</h2>
+<p>数据库世界的产品不胜枚举，Datomic算得上是独树一帜。它吸引我的并非它强大的功能，也并非Rick Hickey[1]的非凡影响力。Datomic的官方网站将它定义为完全事务的、云端的分布式数据库（The fully transacational, cloud-ready, distributed database），这意味着它在互联网时代或许能扮演更多关键角色。但它真正打动我的是它建立的数据模型观点。Rick Hickey在谈论Datomic的架构时，有这么一段描述精到的论述：</p>
+<blockquote>
+<p>任何数据库系统都需要有支持它的数据模型观点。传统的关系型数据库支持与某种世界更新语义（world-update semantic）关联的关系模型。与该领域相对的另一端，一些新的NoSQL系统对它们自身包含的信息却知之甚少，仅仅在保证最终一致性的情况下以简单的键值方式存储blobs。<strong>Datomic将数据库视为信息系统，而信息是一组事实（facts），事实是指一些已经发生的事情。</strong>鉴于任何人都无法改变过去，这也意味着数据库将累积这些事实，而非原地进行更新。<strong>虽然过去可以遗忘，但却是不能改变的。</strong>因此，如果某些人“修改了”他们的地址，Datomic会存储他们拥有新地址这个事实，而非替换掉老的事实（它只是在这个时间点被简单的回收了）。这个不变性（immutability）带来了很多重要的架构优势和机会。</p>
+</blockquote>
+<p>或许很多人会关注到“不变性”，这也是Datomic最大的特色。Rick提到的架构优势和机会就包括：数据一致性、数据读的高可伸缩、内建缓存、高并发支持[2]。但我认为，这里呈现出来的关键信息还在于Datomic提倡的数据模型观点背后隐藏的设计哲学，即“将数据库视为信息系统，而信息是一组事实(facts)”。显然，它将观察世界的观点融入到了数据库的设计中。这何尝不是数据世界的哲学观呢？</p>
+<p>[1]Rick Hickey，Clojure语言之父，又一手打造了Datomic数据库。</p>
+<p>[2]在后面章节，我会结合Datomic和CQRS，尤其是Event Store与Event Sourcing进行深入讲解。</p>
+
+                    
+                    </section>
                 
                 
                 </div>
