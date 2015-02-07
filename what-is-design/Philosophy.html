@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="1423281972168">
+    <div class="book" data-level="1.1" data-basepath=".." data-revision="1423282566898">
     
 
 <div class="book-summary">
@@ -225,7 +225,7 @@
 <p>循环依赖要求编译器同时处理大量源文件，从而会减慢增量式build的速度。更重要的是，如果允许循环依赖，我们的经验告诉我们，这种依赖最后会形成大片互相纠缠不清的源代码树，从而让树中各部分也变得很大，难以进行独立管理，最后二进制文件会膨胀，使得软件开发中的初始化、测试、重构、发布以及其它一些任务变得过于复杂。</p>
 <p>不支持循环import偶尔会让人感到苦恼，但却能让依赖树保持清晰明了，对package的清晰划分也提了个更高的要求。就象Go中其它许多设计决策一样，这会迫使程序员早早地就对一些大规模程序里的问题提前进行思考（在这种情况下，指的是package的边界），而这些问题一旦留给以后解决往往就会永远得不到满意的解决。</p>
 </blockquote>
-<p>我在设计框架时，坚持一个态度就是降低框架对软件项目的侵入性。没有侵入性，就使得项目的代码更加干净清爽，并能够脱离框架容器而单独存在，有利于代码的可测试性、可扩展性与良好的可读性。设计态度决定设计方案，例如我和同事在设计IoC框架（容器）<img src="http://agiledon.github.io/melt" alt="Melt">时，为了降低甚至避免框架的侵入性，遵循了惯例优于配置（Convention over Configure）的原则，对项目施加约束。只要遵循框架制定的惯例，框架的使用者可以定义POJO，而感觉不到框架的存在。唯一与框架有关的代码仅仅是定义自己的Module以及创建Melt容器：</p>
+<p>我在设计框架时，坚持一个态度就是降低框架对软件项目的侵入性。没有侵入性，就使得项目的代码更加干净清爽，并能够脱离框架容器而单独存在，有利于代码的可测试性、可扩展性与良好的可读性。设计态度决定设计方案，例如我和同事在设计IoC框架（容器）<a href="https://github.com/agiledon/melt" target="_blank">Melt</a>时，为了降低甚至避免框架的侵入性，遵循了惯例优于配置（Convention over Configure）的原则，对项目施加约束。只要遵循框架制定的惯例，框架的使用者可以定义POJO，而感觉不到框架的存在。唯一与框架有关的代码仅仅是定义自己的Module以及创建Melt容器：</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyInjectionModule</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">InjectionModule</span> </span>{
     <span class="hljs-annotation">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">()</span> </span>{
