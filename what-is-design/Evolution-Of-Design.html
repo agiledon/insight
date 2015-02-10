@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Glossary | 设计洞见</title>
+        <title>设计演进 | 设计洞见</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -13,16 +13,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
         
     
     
+    <link rel="next" href="../what-is-design/What-Is-Good-Design.html" />
     
     
-
-    
+    <link rel="prev" href="../what-is-design/Philosophy.html" />
     
 
         
@@ -30,11 +30,11 @@
     <body>
         
         
-<link rel="stylesheet" href="gitbook/style.css">
+<link rel="stylesheet" href="../gitbook/style.css">
 
 
         
-    <div class="book" data-level="" data-basepath="." data-revision="1423556358111">
+    <div class="book" data-level="1.2" data-basepath=".." data-revision="1423556358111">
     
 
 <div class="book-summary">
@@ -55,7 +55,7 @@
         <li class="chapter " data-level="0" data-path="index.html">
             
                 
-                    <a href="./index.html">
+                    <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
                          引言
@@ -69,7 +69,7 @@
         <li class="chapter " data-level="1" data-path="what-is-design/Intro-Design.html">
             
                 
-                    <a href="./what-is-design/Intro-Design.html">
+                    <a href="../what-is-design/Intro-Design.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.</b>
@@ -86,7 +86,7 @@
         <li class="chapter " data-level="1.1" data-path="what-is-design/Philosophy.html">
             
                 
-                    <a href="./what-is-design/Philosophy.html">
+                    <a href="../what-is-design/Philosophy.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.1.</b>
@@ -99,10 +99,10 @@
         </li>
     
         
-        <li class="chapter " data-level="1.2" data-path="what-is-design/Evolution-Of-Design.html">
+        <li class="chapter active" data-level="1.2" data-path="what-is-design/Evolution-Of-Design.html">
             
                 
-                    <a href="./what-is-design/Evolution-Of-Design.html">
+                    <a href="../what-is-design/Evolution-Of-Design.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.2.</b>
@@ -118,7 +118,7 @@
         <li class="chapter " data-level="1.3" data-path="what-is-design/What-Is-Good-Design.html">
             
                 
-                    <a href="./what-is-design/What-Is-Good-Design.html">
+                    <a href="../what-is-design/What-Is-Good-Design.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.3.</b>
@@ -216,33 +216,52 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="./" >设计洞见</a>
+        <a href="../" >设计洞见</a>
     </h1>
 </div>
 
             <div class="page-wrapper" tabindex="-1">
                 <div class="page-inner">
                 
+                
+                    <section class="normal" id="section-gitbook_2">
+                    
+                        <h1 id="">设计演进</h1>
+<h2 id="">向微服务的演进</h2>
+<p>我们的一个项目，采用了简单分割的分布式架构，Front End面向客户的用户，而Back Office则面向业务人员和系统管理者。随着需求增多，功能越来越复杂，系统各个模块的边界开始变得越模糊，形成了一个逻辑散乱的庞大代码库。重复代码与重复数据俯拾皆是，而Front End与Back Office之间的集成也非常复杂。负责开发这两个模块的团队虽然属于同一个项目，但团队之间存在极大的技术和业务壁垒，团队成员对整个系统缺乏整体认识，知识没有能够在团队之间传递起来。</p>
+<p>新的业务服务如约而至，项目面临抉择：究竟是得过且过，然后看着代码库逐渐庞大，复杂而僵化以至于难以维护；抑或风险驱动，通过演进改进系统架构，同时进行新需求开发？</p>
+<p>智者，自然会选择后者，毋庸置疑。</p>
+<p>观察这个架构，它是Monolithic System的典型体现，体现为系统复杂，没有形成松散耦合的模块结构，没有清晰的层次和边界划分，进而导致复杂的集成。因而，我们以划定清晰边界为系统演进过程的起点。考虑重用和统一接口的因素，我们以REST服务为重用粒度。</p>
+<p>识别服务时，可以运用DDD的Bounded Context[1]来确定服务的边界。</p>
+<p><strong>参考文献</strong>
+[1]Eric Evans，领域驱动设计</p>
 
-
+                    
+                    </section>
+                
+                
                 </div>
             </div>
         </div>
 
         
+        <a href="../what-is-design/Philosophy.html" class="navigation navigation-prev " aria-label="Previous page: 设计哲学"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../what-is-design/What-Is-Good-Design.html" class="navigation navigation-next " aria-label="Next page: 何谓优良的设计"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-<script src="gitbook/app.js"></script>
+<script src="../gitbook/app.js"></script>
 
     
     <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
     
-    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
     
 
 <script>

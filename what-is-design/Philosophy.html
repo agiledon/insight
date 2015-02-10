@@ -19,8 +19,10 @@
         
     
     
+    <link rel="next" href="../what-is-design/Evolution-Of-Design.html" />
     
-    <link rel="prev" href="../what-is-design/README.html" />
+    
+    <link rel="prev" href="../what-is-design/Intro-Design.html" />
     
 
         
@@ -32,7 +34,7 @@
 
 
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="1423282566898">
+    <div class="book" data-level="1.1" data-basepath=".." data-revision="1423556358111">
     
 
 <div class="book-summary">
@@ -64,10 +66,10 @@
         </li>
     
         
-        <li class="chapter " data-level="1" data-path="what-is-design/README.html">
+        <li class="chapter " data-level="1" data-path="what-is-design/Intro-Design.html">
             
                 
-                    <a href="../what-is-design/README.html">
+                    <a href="../what-is-design/Intro-Design.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.</b>
@@ -90,6 +92,38 @@
                             <b>1.1.</b>
                         
                          设计哲学
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.2" data-path="what-is-design/Evolution-Of-Design.html">
+            
+                
+                    <a href="../what-is-design/Evolution-Of-Design.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         设计演进
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.3" data-path="what-is-design/What-Is-Good-Design.html">
+            
+                
+                    <a href="../what-is-design/What-Is-Good-Design.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         何谓优良的设计
                     </a>
                 
             
@@ -190,7 +224,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_2">
+                    <section class="normal" id="section-gitbook_4">
                     
                         <h1 id="">设计哲学</h1>
 <h2 id="datomic">Datomic的设计哲学</h2>
@@ -242,7 +276,8 @@ assertThat(bankService.getBankDao(), instanceOf(BankDao.class));
 </code></pre>
 <p>Martin Fowler曾经定义“架构是以后很难更改的内容”，若依此定义，则设计者的态度似乎就是在定义架构。Linus在他的自传Just For Fun中解释了为何Linux采用了宏内核模式。宏内核与微内核之争并不能以Linux后来的成功决定胜者，关键还在于设计者观察的视角，以及产品适用的场景。</p>
 <h2 id="">设计的因与果</h2>
-<p>古希腊哲学家留基伯有一句名言说：“世界上没有无缘无故的事情，万事万物总有一个因，那是必然的。”他认为世界自从建立之日起，就在遵循规律发展。循因而去，就能挖掘到深埋地底的规律。软件设计的过程，其实就是寻找规律，然后遵循规律演化的过程。——故而，寻找所要设计软件的“因”，就成为了设计者的任务。</p>
+<p>古希腊哲学家留基伯有一句名言说：“世界上没有无缘无故的事情，万事万物总有一个因，那是必然的。”他认为世界自从建立之日起，就在遵循规律发展。因果分析是几千年来的哲学家一直在深思的问题。因与果之间的相关性具有本质上的联系，甚至不因外界的变化而变化。这种不变的因果关系就是我们需要去寻找的事物发展的规律。图灵奖得主Judea Pearl在著作Causality-Models, Reasoning and Inference中定义了三条重要的规则。根据这三条规则，在因果关系结构给定的情况下，可以将观察数据中得来的相关关系的度量，转换成因果关系（causality）中的度量。 </p>
+<p>软件设计是一种循证式的设计，我们需要对需求进行深入分析和观察，辨别散落在需求中的各种相关性，再通过早期实现进行验证。同时，在这个过程中需要去寻找规律，并遵循规律演化的过程。——故而，寻找所要设计软件的“因”，就成为了设计者的任务[TBD]。</p>
 <p><strong>参考文献</strong></p>
 <p>[1]Rick Hickey，Clojure语言之父，又一手打造了Datomic数据库。</p>
 <p>[2]在后面章节，我会结合Datomic和CQRS，尤其是Event Store与Event Sourcing进行深入讲解。</p>
@@ -260,8 +295,10 @@ assertThat(bankService.getBankDao(), instanceOf(BankDao.class));
         </div>
 
         
-        <a href="../what-is-design/README.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 何为设计"><i class="fa fa-angle-left"></i></a>
+        <a href="../what-is-design/Intro-Design.html" class="navigation navigation-prev " aria-label="Previous page: 何为设计"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="../what-is-design/Evolution-Of-Design.html" class="navigation navigation-next " aria-label="Next page: 设计演进"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
