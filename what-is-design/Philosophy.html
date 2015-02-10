@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="1423556358111">
+    <div class="book" data-level="1.1" data-basepath=".." data-revision="1423578762121">
     
 
 <div class="book-summary">
@@ -274,10 +274,20 @@ Container container = Melt.createContainer(<span class="hljs-keyword">new</span>
 DefaultBankService bankService = container.resolve(BankService.class);
 assertThat(bankService.getBankDao(), instanceOf(BankDao.class));
 </code></pre>
-<p>Martin Fowler曾经定义“架构是以后很难更改的内容”，若依此定义，则设计者的态度似乎就是在定义架构。Linus在他的自传Just For Fun中解释了为何Linux采用了宏内核模式。宏内核与微内核之争并不能以Linux后来的成功决定胜者，关键还在于设计者观察的视角，以及产品适用的场景。</p>
+<p>Martin Fowler曾经定义“架构是以后很难更改的内容”，若依此定义，则设计者的态度似乎就是在定义架构。Linus在他的自传Just For Fun中提到了当年Minix与Linux之争，这主要在于二者基于的内核模式的不同。Linus首先分析了微内核理论的原则[7]：</p>
+<blockquote>
+<p>微内核理论的原则是：内核作为操作系统的基本核心，本身的功能越少越好，它的主要功能应该只有通信。电脑所提供的各种不同服务，都要通过微内核之间的通信渠道来实现。所以，采用微内核方法，就得尽量分割操作系统的问题空间，让每个问题空间都尽量简单。</p>
+</blockquote>
+<p>而Linux采用的却是宏内核模式，Linus的设计态度是虽然合理的分解可以使得每个组成部分都更简单，但之间的交互却会变得非常复杂。他认为：“各独立模块之间的联系比原来系统要复杂得多，更何况，每个模块也并不是那么简单。”</p>
+<p>宏内核与微内核之争并不能以Linux后来的成功决定胜者，关键还在于设计者观察的视角，以及产品适用的场景。</p>
 <h2 id="">设计的因与果</h2>
-<p>古希腊哲学家留基伯有一句名言说：“世界上没有无缘无故的事情，万事万物总有一个因，那是必然的。”他认为世界自从建立之日起，就在遵循规律发展。因果分析是几千年来的哲学家一直在深思的问题。因与果之间的相关性具有本质上的联系，甚至不因外界的变化而变化。这种不变的因果关系就是我们需要去寻找的事物发展的规律。图灵奖得主Judea Pearl在著作Causality-Models, Reasoning and Inference中定义了三条重要的规则。根据这三条规则，在因果关系结构给定的情况下，可以将观察数据中得来的相关关系的度量，转换成因果关系（causality）中的度量。 </p>
-<p>软件设计是一种循证式的设计，我们需要对需求进行深入分析和观察，辨别散落在需求中的各种相关性，再通过早期实现进行验证。同时，在这个过程中需要去寻找规律，并遵循规律演化的过程。——故而，寻找所要设计软件的“因”，就成为了设计者的任务[TBD]。</p>
+<p>古希腊哲学家留基伯有一句名言说：“世界上没有无缘无故的事情，万事万物总有一个因，那是必然的。”他认为世界自从建立之日起，就在遵循规律发展。因果分析是几千年来的哲学家一直在深思的问题。因与果之间的相关性具有本质上的联系，甚至不因外界的变化而变化。这种不变的因果关系就是我们需要去寻找的事物发展的规律。</p>
+<p>图灵奖得主Judea Pearl在著作Causality-Models, Reasoning and Inference中定义了三条重要的规则。根据这三条规则，在因果关系结构给定的情况下，可以将观察数据中得来的相关关系的度量，转换成因果关系（causality）中的度量。 </p>
+<p>如果我们没有洞察事物的真相，不过是因为我们没有发现事物的因罢了。例如在上个世纪初期之前，人们都认为空间和时间并不会受到在其中发生的事件的影响。“即便在狭义相对论中，这也是对的。物体运动，力吸引并排斥，但时间和空间则完全不受影响地延伸着。空间和时间很自然地被认为无限地向前延伸。”</p>
+<p>但是，广义相对论找到了时间与空间的“因”，爱因斯坦认为它们都属于一种动力量，所以在物体运动或产生力作用时，会影响空间和时间的曲率。正是建立了这样的假设，才会对所谓“宇宙是不变的”这种观点产生冲击，从而建立一种新的宇宙观，即宇宙膨胀理论。</p>
+<p><img src="imgs/general-relativity.jpg" alt="general relativity"></p>
+<p>图：爱因斯坦的广义相对论认为，这样一个质量巨大的天体自转时的速度和角动量会造成其周遭时空的扭曲</p>
+<p>我们在软件设计中，若能洞察这种因果关系，就能为整个设计规划出合理的路线图，并定义合理的设计原则。要做到这一点，则需要大胆提出假设，然后小心求证，就像福尔摩斯探案一般，善于观察，严谨缜密不放过任何蛛丝马迹，又要敢于假设，然后通过严丝合缝地逻辑推理来导出结论。这种“假设”实质上就是识别风险，并推断可能的应用场景，利用场景驱动设计思路，进而做出决策。之后，我们需要对需求进行深入分析和观察，辨别散落在需求中的各种相关性，再通过早期实现进行验证，从而寻找到设计软件的“因”。</p>
 <p><strong>参考文献</strong></p>
 <p>[1]Rick Hickey，Clojure语言之父，又一手打造了Datomic数据库。</p>
 <p>[2]在后面章节，我会结合Datomic和CQRS，尤其是Event Store与Event Sourcing进行深入讲解。</p>
@@ -285,6 +295,8 @@ assertThat(bankService.getBankDao(), instanceOf(BankDao.class));
 <p>[4]博客《<a href="http://developeronline.blogspot.com" target="_blank">如果哲学家是程序员</a>》</p>
 <p>[5]Basics of the Unix Philosophy</p>
 <p>[6]Rob Pike，<a href="http://www.oschina.net/translate/go-at-google-language-design-in-the-service-of-software-engineering" target="_blank">Go在谷歌：以软件工程为目的的语言设计</a></p>
+<p>[7]Linus Torvalds, David Diamond, Just for Fun</p>
+<p>[8]史蒂芬.霍金，《时间简史》</p>
 
                     
                     </section>
